@@ -132,6 +132,8 @@ def evaluate(opt):
                 t2 = time_sync()
 
                 pred_disp, _ = disp_to_depth(output[("disp", 0)], opt.min_depth, opt.max_depth)
+                # for visualization, we need original disparity
+                # pred_disp = output[("disp", 0)]
                 pred_disp = pred_disp.cpu()[:, 0].numpy()
 
                 if opt.post_process:
